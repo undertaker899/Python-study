@@ -1,7 +1,7 @@
 # Example
 product = 1
 n = 5
-for i in range(1, n + 1):
+for i in range(1, n+1):
     product = product * i
 print("product of numbers = ", product)
 # Loop for: and function range()
@@ -86,8 +86,8 @@ while n > 1:
 # Example
 heads = 35
 legs = 94
-for r in range(heads + 1):
-    for ph in range(heads + 1):
+for r in range(heads+1):
+    for ph in range(heads+1):
         if (r + ph) > heads or (r * 4 + ph * 2) > legs:
             continue
         if (r + ph) == heads and (r * 4 + ph * 2) == legs:

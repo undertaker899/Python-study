@@ -87,12 +87,12 @@ else:
 # Comparison and logical operators and conditional statements
 
 # Example
-L = [1, 2, 3, 3]
+L = input().split()
 if len(L) == len(set(L)):
     print('All symbols are unique')
 else:
     print('Not all symbols are unique')
-# Comparison operator, functions len() and set() and conditional statements
+# Comparison operator, functions len(), set() and .split() and conditional statements
 
 # Example
 number = int(input())
@@ -102,4 +102,4 @@ if string1 == string2:
     print('Number is palindrome')
 else:
     print('Number is not palindrome')
-# Comparison operator, slices, function str() and conditional statements
+# Comparison operator, slice, function str() and conditional statements

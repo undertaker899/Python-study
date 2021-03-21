@@ -52,14 +52,14 @@ string = input()
 list_of_strings = string.split()
 list_of_numbers = list(map(int, list_of_strings))
 print(sum(list_of_numbers[::3]))
-# Method .split, function (map), slices
+# Method .split, function (map), slice
 
 # Example
 list_of_numbers = list(map(int, input().split()))
 list_of_numbers = list_of_numbers[::-1]
 list_of_numbers.append(sum(list_of_numbers))
 print(list_of_numbers)
-# Function (map), method .split and .append, slices
+# Function (map), method .split and .append, slice
 
 # Example
 book = input("Book:")
