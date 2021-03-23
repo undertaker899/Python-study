@@ -1,56 +1,38 @@
-# Example
-def print_2_add_2():
-    print(2+2)
-
-
-print_2_add_2()
-# Function
-
-
-# Example
-def hello_world():
-    print("Hello World")
-
-
-hello_world()
-# Function
-
-
-# Example
-def division(a, n):
-    if a % n == 0:
-        print('n is divider of a')
+# 1
+def division(num_1, num_2):
+    if num_1 % num_2 == 0:
+        print('num_2 is divider of num_1')
     else:
-        print('n is not divider of a')
+        print('num_2 is not divider of num_1')
 
 
 division(2, 4)
-# Function, comparison operator and conditional statements
-
-
 # Example
+
+
+# 2
 def reverse_ladder(n):
     for i in range(n, 0, -1):
         print('*' * i)
 
 
 reverse_ladder(5)
-# Function, logical operator, function range() and loop for:
-
-
 # Example
-def div_cnt(a, count=0):
-    for i in range(1, a+1):
-        if a % i == 0:
+
+
+# 3
+def div_cnt(num, count=0):
+    for i in range(1, num+1):
+        if num % i == 0:
             count = count + 1
     return count
 
 
 print(div_cnt(100))
-# Function, loop for:, function range(), conditional statement and statement return
-
-
 # Example
+
+
+# 4
 def palindrome(s):
     s = s.lower()
     s = s.replace(' ', '')
@@ -61,10 +43,10 @@ def palindrome(s):
 
 
 palindrome(input("Enter your string:"))
-# Function, methods .lower and .replace, comparison operator, slice and conditional statements
-
-
 # Example
+
+
+# 5
 x = 3
 
 
@@ -78,10 +60,10 @@ def func():
 
 func()
 print(x)
-# Function, scope
-
-
 # Example
+
+
+# 6
 def get_mul_func(m):
     nonlocal_m = m
 
@@ -93,10 +75,10 @@ def get_mul_func(m):
 
 two_mul = get_mul_func(2)
 print(two_mul(int(input("Enter your number:"))))
-# Functions, scope and statements return
-
-
 # Example
+
+
+# 7
 def multiple(*nums):
     mul = 1
     for n in nums:
@@ -105,10 +87,10 @@ def multiple(*nums):
 
 
 print(multiple(2, 2, 2, 2))
-# Function, unpacking arguments, loop for: and statement return
-
-
 # Example
+
+
+# 8
 def correct_func(name_arg=None):
     if name_arg is None:
         name_arg = []
@@ -120,28 +102,42 @@ def correct_func(name_arg=None):
 
 
 correct_func(name_arg=[123, 1])
-# Function, data type None, method .append and list type as argument
-
-
 # Example
-def fact(n):
-    if n == 1:
-        return 1
-    return n * fact(n-1)
 
 
-print('Factorial of this number =', fact(int(input('Enter your number: '))))
-# Recursive function, comparison operator, conditional statement and statements return
+# 9
+def nat_num(num=int(input('Enter a number you want to start from: ')), step=int(input('Enter a step: '))):
+    while True:
+        yield num
+        num = num + step
 
 
+for a in nat_num():
+    print(a)
 # Example
-def rec_fibb(n):
-    if n == 1:
-        return 1
-    if n == 2:
-        return 1
-    return rec_fibb(n - 1) + rec_fibb(n - 2)
 
 
-print('Fibonacci number =', rec_fibb(int(input('Enter # of fibonacci number: '))))
-# Recursive function, comparison operator, conditional statements and statements return
+# 10
+def massive(t):
+    t_values = t.copy()
+    while True:
+        value = t_values.pop(0)
+        t_values.append(value)
+        yield value
+
+
+for a in massive([1, 2, 3]):
+    print(a)
+# Example
+
+
+# 11
+def make_adder(num_1):
+    def adder(num_2):
+        return num_1 + num_2
+    return adder
+
+
+add_input = make_adder(int(input('First number: ')))
+print('Sum =', add_input(int(input('Second number: '))))
+# Example
