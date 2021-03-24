@@ -33,10 +33,7 @@ print("Index of last negative number in list =", index_negative)
 
 
 # 4
-text = input()
-text = text.lower()
-text = text.replace(" ", "")
-text = text.replace("\n", "")
+text = input('Enter your text: ').lower().replace(" ", "").replace("\n", "")
 count = {}
 for char in text:
     if char in count:
@@ -74,4 +71,32 @@ for r in range(heads+1):
         if (r + ph) == heads and (r * 4 + ph * 2) == legs:
             print("Rabbits:", r)
             print("Pheasants:", ph)
+# Example
+
+# 7
+print([[i*j for j in range(1, 11)] for i in range(1, 11)])
+# Example
+
+
+# 8
+gen_list_1 = [i for i in range(10)]
+gen_list_2 = [i for i in range(10, 0, -1)]
+print([a * b for a, b in zip(gen_list_1, gen_list_2)])
+# Example
+
+
+# 9
+list_01 = input()
+last_symb = list_01[0]
+count = 0
+result = ''
+for symb in list_01:
+    if symb == last_symb:
+        count = count + 1
+    else:
+        result = result + last_symb + str(count)
+        last_symb = symb
+        count = 1
+result = result + last_symb + str(count)
+print(result)
 # Example

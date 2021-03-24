@@ -1,105 +1,127 @@
-# Example
-a = int(input())
+# 1
+a = int(input('Enter current year: '))
 leap_year = a % 4 == 0
-print(leap_year is True)
-# Comparison and identity operators
-
-
-n = input()
-print('3' in str(n) and '7' in str(n))
-# Logical operators
-
+print("It's", leap_year is True, "that right now is leap year")
 # Example
-a = int(input("a:"))
-b = int(input("b:"))
+
+
+# 2
+a, b = int(input('a: ')), int(input("b: "))
 if a % 2 == 1 and b % 2 == 1:
     print('a and b are odd numbers')
-else:
+elif a % 2 == 1 or b % 2 == 1:
     print('a or b is even number')
-# Comparison operators and conditional statements
-
+else:
+    print('a and b are even numbers')
 # Example
-x = int(input())
-y = int(input())
-if x > 0 and y > 0:
-    print("First quarter")
-if x > 0 and y < 0:
-    print("Fourth quarter")
-if x < 0 and y > 0:
-    print("Second quarter")
-if x < 0 and y < 0:
-    print("Third quarter")
-# Comparison and logical operators and conditional statements
 
+# 3
+x_c = int(input('Enter x coordinate: '))
+y_c = int(input('Enter y coordinate: '))
+if x_c > 0 and y_c > 0:
+    print('First quarter')
+elif x_c > 0 > y_c:
+    print('Fourth quarter')
+elif x_c < 0 < y_c:
+    print('Second quarter')
+elif x_c < 0 and y_c < 0:
+    print('Third quarter')
+else:
+    print('One or both of coordinates is/are zero')
 # Example
-speed = int(input("Enter wind speed:"))
-if speed in [0, 1, 2, 3, 4]:
+
+
+# 4
+speed = int(input('Enter wind speed in meters/seconds: '))
+if 0 <= speed <= 4:
     print('Weak wind')
-elif speed in [5, 6, 7, 8, 9, 10]:
+if 5 <= speed <= 10:
     print('Moderate wind')
-elif speed in [11, 12, 13, 14, 15, 16, 17, 18]:
+if 11 <= speed <= 18:
     print('Strong wind')
-elif speed >= 19:
+if speed >= 19:
     print('Hurricane')
-# Comparison and logical operators and conditional statements
-
 # Example
-user = input("Enter your username:")
-password = input("Enter your password:")
+
+
+# 5
+user = input('Enter your username: ')
 user_database = {'user': 'password', 'iseedeadpeople': 'greedisgood', 'hesoyam': 'tgm'}
 if user in user_database.keys():
+    password = input('Enter your password: ')
     if password in user_database.values():
         print('Welcome', user)
+    else:
+        print('Invalid password')
 else:
-    print('No user with such name or password')
-# Dictionary, methods .keys() and .values(), logical operators and conditional statements
-
+    print('No profile with such username')
 # Example
-a = int(input("a:"))
-b = int(input("b:"))
-c = int(input("c:"))
-if a < 45 and b >= 45 and c >= 45:
+
+
+# 6
+num_1, num_2, num_3 = int(input('First number: ')), int(input('Second number: ')), int(input('Third number: '))
+if num_1 < 45 <= num_2 <= num_3:
     print('One number is less than 45')
-elif a >= 45 and b < 45 and c >= 45:
+elif num_2 < 45 <= num_1 <= num_3:
     print('One number is less than 45')
-elif a >= 45 and b >= 45 and c < 45:
+elif num_3 < 45 <= num_1 <= num_2:
     print('One number is less than 45')
 else:
-    print('More than one number is less than 45')
-# Comparison and logical operators and conditional statements
-
+    print('One number is less than 45 is not true')
 # Example
-a = int(input())
-if -10 <= a <= 0:
-    print('a is in interval [-10:0]')
-elif 2 <= a <= 15:
-    print('a is in interval [2:15]')
+
+
+# 7
+num_01 = int(input('Enter your number: '))
+if -10 <= num_01 <= 0:
+    print('Your number is in interval [-10:0]')
+elif 2 <= num_01 <= 15:
+    print('Your number is in interval [2:15]')
 else:
-    print("a is not in either interval")
-# Comparison operators and conditional statements
-
+    print('Your number is not in either interval')
 # Example
-a = int(input('Enter two digit number:'))
+
+
+# 8
+a = int(input('Enter positive two digit number: '))
 if a % 10 == 5 or a // 10 == 5:
-    print("a has 5 in it")
+    print('a has 5 in it')
 else:
-    print("a has no 5 in it")
-# Comparison and logical operators and conditional statements
-
+    print('a has no 5 in it')
 # Example
+
+
+# 9
 L = input().split()
 if len(L) == len(set(L)):
     print('All symbols are unique')
 else:
     print('Not all symbols are unique')
-# Comparison operator, functions len(), set() and .split() and conditional statements
-
 # Example
+
+
+# 10
 number = int(input())
-string1 = str(number)
-string2 = string1[::-1]
-if string1 == string2:
+if str(number) == str(number)[::-1]:
     print('Number is palindrome')
 else:
     print('Number is not palindrome')
-# Comparison operator, slice, function str() and conditional statements
+# Example
+
+
+# 11
+a, b = 0, []
+if a and b:
+    print("Both variables are 'True'")
+    print(a, b)
+elif a or b:
+    print("One of variables is 'True'")
+    print(a or b)
+else:
+    print("Both variables are 'False'")
+# Example
+
+
+# 12
+print(not any(map(int, input().split())))
+# Example
