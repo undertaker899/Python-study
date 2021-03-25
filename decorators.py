@@ -82,3 +82,40 @@ f(int(input('Enter your number: ')))
 f(int(input('Enter your number: ')))
 f(int(input('Enter your number: ')))
 # Example
+
+
+# 4
+USERS = ['admin', 'guest', 'director', 'root', 'superstar']
+yesno = input("If you want to authorize enter Y: ")
+auth = yesno == 'Y'
+
+
+def is_auth(func1):
+    def wrapper():
+        if auth:
+            print('User authorized')
+            func1()
+        else:
+            print("User is not authorized. Function won't run")
+    return wrapper
+
+
+def has_access(func2):
+    def wrapper():
+        access = input('Enter your login: ')
+        if access in USERS:
+            print('Your login is confirmed')
+            func2()
+        else:
+            print('Login', access, "doesn't exist")
+    return wrapper
+
+
+@is_auth
+@has_access
+def from_db():
+    print('Some data from database')
+
+
+from_db()
+# Example
