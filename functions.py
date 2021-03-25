@@ -1,12 +1,12 @@
 # 1
 def division(num_1, num_2):
     if num_1 % num_2 == 0:
-        print('num_2 is divider of num_1')
+        print('Second number is divider of first number')
     else:
-        print('num_2 is not divider of num_1')
+        print('Second number is not divider of first number')
 
 
-division(2, 4)
+division(int(input('Enter first number: ')), int(input('Enter second number: ')))
 # Example
 
 
@@ -16,7 +16,7 @@ def reverse_ladder(n):
         print('*' * i)
 
 
-reverse_ladder(5)
+reverse_ladder('Enter number of steps reverse ladder will have: ')
 # Example
 
 
@@ -28,21 +28,20 @@ def div_cnt(num, count=0):
     return count
 
 
-print(div_cnt(100))
+print('Number of dividers of your number =', (div_cnt(int(input('Enter your number: ')))))
 # Example
 
 
 # 4
 def palindrome(s):
-    s = s.lower()
-    s = s.replace(' ', '')
+    s = s.lower().replace(' ', '')
     if s == s[::-1]:
         print('Input is palindrome')
     else:
         print('Input is not palindrome')
 
 
-palindrome(input("Enter your string:"))
+palindrome(input('Enter your string: '))
 # Example
 
 
@@ -74,7 +73,7 @@ def get_mul_func(m):
 
 
 two_mul = get_mul_func(2)
-print(two_mul(int(input("Enter your number:"))))
+print(two_mul(int(input('Enter your number: '))))
 # Example
 
 
@@ -86,7 +85,7 @@ def multiple(*nums):
     return mul
 
 
-print(multiple(2, 2, 2, 2))
+print(multiple(int(input('1st num: ')), int(input('2nd num: ')), int(input('3rd num: ')), int(input('4th num: '))))
 # Example
 
 
@@ -140,4 +139,19 @@ def make_adder(num_1):
 
 add_input = make_adder(int(input('First number: ')))
 print('Sum =', add_input(int(input('Second number: '))))
+# Example
+
+
+# 12
+def quadratic_equation(a1, a2, a3):
+    discriminant = a2**2 - 4*a1*a3
+    if discriminant < 0:
+        return 'No real roots'
+    elif discriminant == 0:
+        return -a2/(2*a1)
+    else:
+        return (-a2 - discriminant**0.5)/(2*a1), (-a2 + discriminant**0.5)/(2*a1)
+
+
+print(quadratic_equation(int(input()), int(input()), int(input())))
 # Example
