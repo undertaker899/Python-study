@@ -1,5 +1,5 @@
 # 1
-print(round(3.14159**2/2))
+print(round(3.14159 ** 2 / 2))
 # Example
 
 

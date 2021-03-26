@@ -155,3 +155,19 @@ def quadratic_equation(a1, a2, a3):
 
 print(quadratic_equation(int(input()), int(input()), int(input())))
 # Example
+
+
+# 13
+def even_numbers(a_num):
+    return a_num % 2 == 0
+
+
+result = filter(even_numbers, [-2, -1, 0, 1, -3, 2, -3])
+print(list(result))
+# Example
+
+
+# 14
+data = [(82, 191), (68, 174), (90, 189), (73, 179), (76, 184)]
+print(sorted(data, key=lambda height_weight: height_weight[0] / (height_weight[1] ** 2)))
+# Example
