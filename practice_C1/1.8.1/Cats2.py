@@ -1,4 +1,4 @@
-from Cats1 import Cat
+from cats1 import Cat
 
 cat_01 = Cat('Baron', 'Male', 2)
 cat_02 = Cat('Sam', 'Male', 2)
