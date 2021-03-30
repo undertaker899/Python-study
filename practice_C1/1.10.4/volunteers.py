@@ -1,17 +1,17 @@
 class People:
-    def __init__(self, name, location):
+    def __init__(self, name, location, status):
         self.name = name
         self.location = location
-
-
-class Role(People):
-    def __init__(self, name, location, status):
-        super().__init__(name, location)
         self.status = status
 
 
-ivan = Role('Ivan Petrov', 'Moscow', 'Mentor')
-karina = Role('Karina Smirnova', 'Saint-Petersburg', 'Student')
+class Person(People):
+    def get_person(self):
+        return f'''{self.name}, {self.location}, status "{self.status}"'''
+
+
+ivan = Person('Ivan Petrov', 'Moscow', 'Mentor')
+karina = Person('Karina Smirnova', 'Saint-Petersburg', 'Student')
 volunteers = [ivan, karina]
 for i in volunteers:
-    print(f'''{i.name}, {i.location}, status "{i.status}"''')
+    print(i.get_person())
