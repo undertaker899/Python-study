@@ -197,7 +197,7 @@ class Squares:
         return self.side ** 2
 
 
-sq1 = Square(1)
+sq1 = Squares(1)
 sq1.side = 2
 print(sq1.side)
 # Example
