@@ -178,26 +178,26 @@ my_obj.call_class_method()
 
 # 6
 class Squares:
-    _a = None
+    _side = None
 
-    def __init__(self, a):
-        self.a = a
+    def __init__(self, side):
+        self.side = side
 
     @property
-    def a(self):
-        return self._a
+    def side(self):
+        return self._side
 
-    @a.setter
-    def a(self, value):
+    @side.setter
+    def side(self, value):
         if value > 0:
-            self._a = value
+            self._side = value
 
     @property
     def get_area(self):
-        return self.a ** 2
+        return self.side ** 2
 
 
-sq1 = Squares(1)
-sq1.a = 2
-print(sq1.a)
+sq1 = Square(1)
+sq1.side = 2
+print(sq1.side)
 # Example
