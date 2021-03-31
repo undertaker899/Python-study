@@ -92,3 +92,112 @@ if __name__ == "__main__":
     test_view_event.show_description()
     print(test_view_event.type)
 # Example
+
+
+# 3
+class Square:
+    def __init__(self, side):
+        self.side = side
+
+
+class SquareFactory:
+
+    @staticmethod
+    def square_side(side):
+        return Square(side)
+
+
+square_01 = SquareFactory.square_side(4)
+print(square_01.side)
+# Example
+
+
+# 4
+class Dog:
+    _happiness = 10
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @property
+    def human_age(self):
+        return self.age * 7.3
+
+    @property
+    def happiness(self):
+        return self._happiness
+
+    @happiness.setter
+    def happiness(self, value):
+        if 0 <= value <= 100:
+            self._happiness = value
+        else:
+            raise ValueError("Happiness must be between 0 ... 100")
+
+
+jane = Dog("jane", 4)
+jane.happiness = 120
+print(jane.happiness)
+# Example
+
+
+# 5
+class ParentClass:
+
+    @classmethod
+    def method(cls, arg):
+        print("%s classmethod. %d" % (cls.__name__, arg))
+
+    @classmethod
+    def call_original_method(cls):
+        cls.method(5)
+
+    def call_class_method(self):
+        self.method(10)
+
+
+class ChildClass(ParentClass):
+
+    @classmethod
+    def call_original_method(cls):
+        cls.method(6)
+
+
+ParentClass.method(0)
+ParentClass.call_original_method()
+
+ChildClass.method(0)
+ChildClass.call_original_method()
+
+my_obj = ParentClass()
+my_obj.method(1)
+my_obj.call_class_method()
+# Example
+
+
+# 6
+class Squares:
+    _a = None
+
+    def __init__(self, a):
+        self.a = a
+
+    @property
+    def a(self):
+        return self._a
+
+    @a.setter
+    def a(self, value):
+        if value > 0:
+            self._a = value
+
+    @property
+    def get_area(self):
+        return self.a ** 2
+
+
+sq1 = Squares(1)
+sq1.a = 2
+print(sq1.a)
+# Example
