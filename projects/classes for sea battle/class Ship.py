@@ -1,30 +1,3 @@
-class BoardException(Exception):
-    pass  # Not for player
-
-
-class BoardOutException(BoardException):
-    def __str__(self):
-        return 'You are trying to move out of border'
-
-
-class BoardUsedException(BoardException):
-    def __str__(self):
-        return 'You are repeating move'
-
-
-class WrongShipException(BoardException):
-    pass  # Not for player
-
-
-class Dot:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-
-
 class Ship:
     def __init__(self, size, front, turn):
         self.size = size
