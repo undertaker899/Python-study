@@ -36,61 +36,35 @@ eggs = Product("eggs", "food", 5)
 
 # 2
 class Event:
-    def __init__(self, timestamp=0, event_type='', session_id=''):
+    def __init__(self, timestamp, event_type, session_id):
         self.timestamp = timestamp
         self.type = event_type
         self.session_id = session_id
-
-    def init_from_dict(self, event_dict):
-        self.timestamp = event_dict.get("timestamp")
-        self.type = event_dict.get("type")
-        self.session_id = event_dict.get("session_id")
-
-    def show_description(self):
-        print("This is generic event.")
 
 
 events = [
     {
      "timestamp": 1554583508000,
      "type": "itemViewEvent",
-     "session_id": "0:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
+     "session_id": "@:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
     },
     {
      "timestamp": 1555296337000,
      "type": "itemViewEvent",
-     "session_id": "0:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
+     "session_id": "@:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
     },
     {
      "timestamp": 1549461608000,
      "type": "itemBuyEvent",
-     "session_id": "0:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
+     "session_id": "@:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct",
     },
 ]
 
-
 for event in events:
-    event_obj = Event()
-    event_obj.init_from_dict(event)
+    event_obj = Event(timestamp=event.get("timestamp"),
+                      event_type=event.get("type"),
+                      session_id=event.get("session_id"))
     print(event_obj.timestamp)
-
-
-class ItemViewEvent(Event):
-    type = "itemViewEvent"
-
-    def __init__(self, timestamp=0, session_id="", number_of_views=0):
-        self.timestamp = timestamp
-        self.session_id = session_id
-        self.number_of_views = number_of_views
-
-    def show_description(self):
-        print("This event means someone has browsed an item.")
-
-
-if __name__ == "__main__":
-    test_view_event = ItemViewEvent(1549461608000, "0:NynteeXG:MYlskrqZbcmXNSFEJaZIsNVGeDLLpmct", 6)
-    test_view_event.show_description()
-    print(test_view_event.type)
 # Example
 
 
@@ -207,9 +181,9 @@ print(sq1.side)
 try:
     num_string = int(input())
 except ValueError as e:
-    print('Вы ввели неправильное число')
+    print('Your input is wrong number')
 else:
-    print('Вы ввели', num_string)
+    print('Your input is', num_string)
 finally:
-    print('Выход из программы')
+    print('Exit program')
 # Example
