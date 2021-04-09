@@ -1,5 +1,5 @@
 from class_Dot import Dot
-from classes_Exception import WrongShipException, BoardOutException, BoardUsedException
+from classes_Exception import BoardWrongShipException, BoardOutException, BoardUsedException
 
 
 class Board:
@@ -26,7 +26,7 @@ class Board:
     def add_ship(self, ship):
         for dot in ship.dots:
             if self.out(dot) or dot in self.taken:
-                raise WrongShipException
+                raise BoardWrongShipException
                 # Raising exception if coordinate where we want to put ship is taken or out of game board
 
         for dot in ship.dots:
@@ -79,3 +79,6 @@ class Board:
 
     def next_stage(self):  # Method to reset state of game board so the game could be played
         self.taken = []
+
+    def end_game(self):  # Method for checking win condition
+        return self.count == len(self.ships)

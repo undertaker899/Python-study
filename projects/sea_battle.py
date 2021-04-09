@@ -15,7 +15,7 @@ class BoardUsedException(BoardException):
         return 'You are repeating move'
 
 
-class WrongShipException(BoardException):
+class BoardWrongShipException(BoardException):
     pass  # Not for player
 
 
@@ -77,7 +77,7 @@ class Board:
     def add_ship(self, ship):
         for dot in ship.dots:
             if self.out(dot) or dot in self.taken:
-                raise WrongShipException
+                raise BoardWrongShipException
                 # Raising exception if coordinate where we want to put ship is taken or out of game board
 
         for dot in ship.dots:
@@ -131,6 +131,9 @@ class Board:
     def next_stage(self):  # Method to reset state of game board so the game could be played
         self.taken = []
 
+    def end_game(self):  # Method for checking win condition
+        return self.count == len(self.ships)
+
 
 class Player:
     def __init__(self, user_board, ai_board):
@@ -172,3 +175,83 @@ class User(Player):
 
             x, y = int(x), int(y)
             return Dot(x - 1, y - 1)  # List indexes start from 0, but we use 1 as first number in our game field
+
+
+class Game:
+    def __init__(self, size=6):
+        self.size = size
+        us = self.random_board()
+        ai = self.random_board()
+        ai.hid = True
+
+        self.ai = AI(ai, us)
+        self.us = User(us, ai)
+
+    def try_board(self):
+        lens = [3, 2, 2, 1, 1, 1, 1]
+        board = Board(size=self.size)
+        attempts = 0
+        for length in lens:
+            while True:
+                attempts += 1
+                if attempts > 2000:
+                    return None
+                ship = Ship(Dot(randint(0, self.size), randint(0, self.size)), length, randint(0, 1))
+                try:
+                    board.add_ship(ship)
+                    break
+                except BoardWrongShipException:
+                    pass
+        board.next_stage()
+        return board
+
+    def random_board(self):
+        board = None
+        while board is None:
+            board = self.try_board()
+        return board
+
+    def greet(self):
+        print("  Sea battle  ")
+        print("-------------------")
+        print(" Input your move as x and y ")
+        print(" x - № of row  ")
+        print(" y - № of column ")
+
+    def loop(self):
+        step = 0
+        while True:
+            print("-" * 20)
+            print("User board:")
+            print(self.us.board)
+            print("-" * 20)
+            print("AI board:")
+            print(self.ai.board)
+            print("-" * 20)
+            if step % 2 == 0:
+                print("User move")
+                repeat = self.us.move()
+            else:
+                print("AI move")
+                repeat = self.ai.move()
+            if repeat:
+                step = step - 1
+
+            if self.ai.board.end_game():
+                print("-" * 20)
+                print("User wins")
+                break
+
+            if self.us.board.end_game():
+                print("-" * 20)
+                print("AI wins")
+                break
+            step = step + 1
+
+    def start(self):
+        self.greet()
+        self.loop()
+
+
+g = Game()
+g.start()

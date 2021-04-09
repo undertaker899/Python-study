@@ -12,5 +12,5 @@ class BoardUsedException(BoardException):
         return 'You are repeating move'
 
 
-class WrongShipException(BoardException):
+class BoardWrongShipException(BoardException):
     pass  # Not for user
