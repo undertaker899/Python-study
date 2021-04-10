@@ -1,6 +1,18 @@
 from random import randint  # For random AI moves
 
 
+class Dot:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __repr__(self):
+        return f"({self.x}, {self.y})"
+
+
 class BoardException(Exception):  # Creating exception classes
     pass  # Not for player
 
@@ -19,15 +31,6 @@ class BoardWrongShipException(BoardException):
     pass  # Not for player
 
 
-class Dot:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-
-
 class Ship:
     def __init__(self, size, front, turn):
         self.size = size
@@ -35,6 +38,7 @@ class Ship:
         self.turn = turn
         self.life = size  # Same value as self.size, but not constant
 
+    @property
     def dots(self):
         ship_dots = []  # Empty massive for creating ships
 
